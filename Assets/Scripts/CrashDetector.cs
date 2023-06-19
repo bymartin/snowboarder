@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class CrashDetector : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class CrashDetector : MonoBehaviour
         // if (collision.tag == "Ground") {
         // better way, will let you know if tag does not exist
         if (collision.CompareTag("Ground")) {
-            Debug.Log("Ouch, hit my head");
+            SceneManager.LoadScene(0);
         }
     }
 }
