@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CrashDetector : MonoBehaviour
 {
+    [SerializeField] ParticleSystem crashEffect;
     [SerializeField] float loadDelay = 0.5f;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -13,6 +14,7 @@ public class CrashDetector : MonoBehaviour
         // if (collision.tag == "Ground") {
         // better way, will let you know if tag does not exist
         if (collision.CompareTag("Ground")) {
+            crashEffect.Play();
             Invoke("ReloadScene", loadDelay);
         }
     }
