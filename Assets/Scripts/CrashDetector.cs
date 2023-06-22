@@ -17,6 +17,7 @@ public class CrashDetector : MonoBehaviour
         // if (collision.tag == "Ground") {
         // better way, will let you know if tag does not exist
         if (collision.CompareTag("Ground") && !hasCrashed) {
+            FindObjectOfType<PlayerController>().DisableControls();
             hasCrashed = true;
             Debug.Log("ground collision");
             crashEffect.Play();
